@@ -1,20 +1,17 @@
-
 server:
   port: 8080
   servlet:
     context-path: /redis-sidecar-spring
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*" # acturator
-      
+    
 spring:
   application:
     name: redis-sidecar-spring
+
+  config:
+    import: 
+    - application-redis.yml
     
 logging:
   level:
-    root: warn                            # all logging
-    '[com.htdp1.redissidecarspring]': debug       # Application logging
+    root: info                                # all logging
+    '[com.htdp1.redissidecarspring]': debug   # Application logging
